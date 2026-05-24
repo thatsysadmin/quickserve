@@ -1,6 +1,4 @@
-use std::ffi::OsStr;
-use std::path::{Path, PathBuf};
-use actix_web::mime::Mime;
+use std::path::Path;
 
 pub fn get_mime(file_name: &Path) -> Option<&str> {
     let file_extension = file_name.extension()?.to_str()?;

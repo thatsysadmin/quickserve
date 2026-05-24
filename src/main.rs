@@ -3,7 +3,7 @@ mod mime_handler;
 use std::path::{Path, PathBuf};
 use std::process::exit;
 use actix_web::{get, web, App, HttpRequest, HttpResponse, HttpServer, Responder};
-use clap::{arg, Parser};
+use clap::Parser;
 use colored::Colorize;
 use tokio_util::io::ReaderStream;
 use crate::mime_handler::get_mime;
