@@ -75,10 +75,20 @@ async fn webpath(request_parameters: HttpRequest, call_path: web::Path<String>, 
     let path = call_path.into_inner();
     match request_parameters.connection_info().realip_remote_addr() {
         None => {
-            println!("{}", format!("Unknown client requested path {}", path).bright_yellow());
+            if path.is_empty() {
+                println!("{}", "Unknown client requested root item".bright_yellow());
+            }
+            else {
+                println!("{}", format!("Unknown client requested item {}", path).bright_yellow());
+            }
         }
         Some(client_address) => {
-            println!("Client {} requested path {}", client_address, path);
+            if path.is_empty() {
+                println!("Client {} requested root item", client_address);
+            }
+            else {
+                println!("Client {} requested item {}", client_address, path);
+            }
         }
     }
 
