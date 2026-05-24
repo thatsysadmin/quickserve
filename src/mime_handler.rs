@@ -7,7 +7,7 @@ pub fn get_mime(file_name: &Path) -> Option<&str> {
 
     // These were stolen from NGINX's default mime matching list.
     // Used Gemma 4 to convert that list over to a match block.
-    // The actix_files thought that an HTML file should be an application/octet-stream.
+    // actix_files thought that an HTML file should be an application/octet-stream.
     // https://github.com/nginx/nginx/blob/master/conf/mime.types
 
     let mime_type = match file_extension.to_lowercase().as_str() {
